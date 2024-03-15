@@ -1,0 +1,27 @@
+@charset 'UTF-8';
+@use "../inc" as *;
+
+/*
+  Footer
+-----------------------------------------------------*/
+
+.l-footer {
+  padding: 1.5em 0;
+  clear: both;
+  background-color: $colorMain;
+
+  @include mq(md) {
+    padding: 3em 0;
+  }
+
+  &__text {
+    margin-top: 1em;
+    color: $colorSub;
+    font-size: 0.75em;
+    text-align: center;
+
+    @include mq(md) {
+      text-align: left;
+    }
+  }
+}

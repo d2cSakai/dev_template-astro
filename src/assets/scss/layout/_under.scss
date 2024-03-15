@@ -1,0 +1,21 @@
+@charset 'UTF-8';
+@use "../inc" as *;
+/*
+  under
+*/
+
+.l-under {
+  padding: 4rem 0 5rem;
+  background-color: $colorWhite;
+  @include mq(lg) {
+    padding: 8.5rem 0 7.5rem;
+  }
+
+  &.-gray {
+    background-color: $colorBase;
+  }
+
+  &.-beige {
+    background-color: $colorBeige;
+  }
+}

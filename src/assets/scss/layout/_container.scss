@@ -1,0 +1,11 @@
+@charset 'UTF-8';
+@use "../inc" as *;
+/*
+  Centering
+-----------------------------------------------------*/
+
+.l-container {
+  width: 90%;
+  max-width: $content-width;
+  margin: 0 auto;
+}

@@ -1,0 +1,53 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import styles from './styles.module.scss';
+---
+
+<Layout title="Welcome to Astro." />
+
+<div class={styles.container}>
+  <div class={styles.wrapper}>
+    <details class={styles.accordion} data-accordion-open="false">
+      <summary class={styles.title}>アコーディオン</summary>
+      <div class={styles.content} data-accordion-content>
+        <ul>
+          <li><a href="#">リスト項目</a></li>
+          <li><a href="#">リスト項目</a></li>
+          <li><a href="#">リスト項目</a></li>
+          <li><a href="#">リスト項目</a></li>
+        </ul>
+      </div>
+    </details>
+    <details class={styles.accordion} data-accordion-open="false">
+      <summary class={styles.title}>アコーディオン2</summary>
+      <div class={styles.content} data-accordion-content>
+        <ul>
+          <li>
+            <a href="#"
+              >リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目</a
+            >
+          </li>
+          <li><a href="#">リスト項目</a></li>
+          <li><a href="#">リスト項目</a></li>
+          <li><a href="#">リスト項目</a></li>
+          <li><a href="#">リスト項目</a></li>
+        </ul>
+      </div>
+    </details>
+
+    <details class={styles.accordion} data-accordion-open="false">
+      <summary class={styles.title}>アコーディオン3</summary>
+      <div class={styles.content} data-accordion-content>
+        <ul>
+          <li>
+            <a href="#"
+              >リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目リスト項目</a
+            >
+          </li>
+          <li><a href="#">リスト項目</a></li>
+        </ul>
+      </div>
+    </details>
+  </div>
+  <!-- /.wrapper -->
+</div>

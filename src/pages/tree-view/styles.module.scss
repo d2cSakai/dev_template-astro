@@ -1,0 +1,28 @@
+.body {
+  // background: red;
+}
+
+.TreeViewNode {
+  &:focus-visible {
+    outline: 0;
+
+    > .TreeViewNodeName {
+      outline: 3px solid tomato;
+    }
+  }
+
+  &[aria-selected='true'] {
+    > .TreeViewNodeName {
+      background-color: lightblue;
+    }
+  }
+}
+
+.TreeViewSubtree {
+  --subtree-depth: 1;
+  padding-inline-start: 0;
+}
+
+.TreeViewNodeName {
+  padding-inline-start: calc(1.5em * var(--subtree-depth));
+}

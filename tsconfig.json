@@ -1,3 +1,31 @@
 {
-  "extends": "astro/tsconfigs/strict"
+  "extends": "astro/tsconfigs/strict",
+  "exclude": ["node_modules"],
+  "include": ["./src/**/*"],
+  "compilerOptions": {
+    "target": "es2020",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true, // JavaScriptファイルも許可するかを指定します
+    "sourceMap": true, // ソースマップを生成するかを指定します
+    "skipLibCheck": true, // ライブラリの型チェックをスキップするかを指定します
+    "strict": true, // 厳密な型チェックを有効にするかを指定します
+    "forceConsistentCasingInFileNames": true, // ファイル名の大文字・小文字を強制するかを指定します
+    "noEmit": true, // JavaScriptファイルの出力を禁止します
+    "noUnusedLocals": true, // 使用されていないローカル変数をエラーとするかを指定します
+    "noUnusedParameters": true, // 使用されていないパラメータをエラーとするかを指定します
+    "noImplicitReturns": true, // 暗黙の戻り値がない場合にエラーとするかを指定します
+    "esModuleInterop": true, // ESモジュールとCommonJSモジュールの相互運用を許可するかを指定します
+    "module": "esnext", // モジュール方式を指定します
+    "moduleResolution": "node", // モジュールの解決方法を指定します
+    "allowSyntheticDefaultImports": true, // シンセティックデフォルトインポートを許可するかを指定します
+    "resolveJsonModule": true, // JSONモジュールの解決を有効にするかを指定します
+    "isolatedModules": true, // 各ファイルを独立したモジュールとして扱うかを指定します
+    "incremental": false, // tsbuildinfo ファイルを出力しないように設定
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"],
+      "@assets/*": ["src/assets/*"],
+      "~/*": ["./*"]
+    }
+  }
 }
