@@ -1,0 +1,46 @@
+.container {
+  padding: 15px;
+}
+
+.wrapper {
+  display: grid;
+  gap: 16px 0;
+}
+.accordion {
+  overflow: hidden;
+  height: var(--acc-height--closed, auto);
+  transition-property: height;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-out;
+
+  border-radius: 12px;
+
+  // borderを使うとズレるためbox-shadow使用
+  box-shadow: 0 0 0 1px #ddd;
+  box-sizing: border-box;
+  &[data-accordion-open='true'] {
+    height: var(--acc-height--opened, auto);
+  }
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  background-color: #d0edf2;
+  padding: 20px;
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+
+  // &::after {
+
+  // }
+}
+
+.content {
+  padding: 20px;
+  background-color: #f0f0f0;
+}

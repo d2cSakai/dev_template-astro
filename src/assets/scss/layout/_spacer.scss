@@ -1,0 +1,191 @@
+@charset 'UTF-8';
+@use "../inc" as *;
+
+/*
+  Spacer
+-----------------------------------------------------*/
+
+.l-spacer {
+  padding: 3rem 0;
+
+  @include mq(sm) {
+    padding: 3.25rem 0;
+  }
+  @include mq(md) {
+    padding: 3.5rem 0;
+  }
+  @include mq(lg) {
+    padding: 4rem 0;
+  }
+  @include mq(xxl) {
+    padding: 6rem 0;
+  }
+  @include mq(xxxl) {
+    padding: 8rem 0;
+  }
+
+  &.-sizeS {
+    padding: 2rem 0;
+
+    @include mq(md) {
+      padding: 4rem 0;
+    }
+    @include mq(lg) {
+      padding: 5rem 0;
+    }
+    @include mq(xxl) {
+      padding: 6rem 0;
+    }
+    @include mq(xxxl) {
+      padding: 7rem 0;
+    }
+  }
+
+  &.-sizeL {
+    padding: 4.5rem 0;
+    @include mq(sm) {
+      padding: 4.75rem 0;
+    }
+    @include mq(md) {
+      padding: 5rem 0;
+    }
+    @include mq(lg) {
+      padding: 7.5rem 0;
+    }
+    @include mq(xxl) {
+      padding: 9rem 0;
+    }
+    @include mq(xxxl) {
+      padding: 10.5rem 0;
+    }
+  }
+
+  &.-top {
+    padding: 4.5rem 0 0 0;
+    @include mq(md) {
+      padding: 6rem 0 0 0;
+    }
+    @include mq(lg) {
+      padding: 8rem 0 0 0;
+    }
+    @include mq(xxl) {
+      padding: 9.5rem 0 0 0;
+    }
+
+    @include mq(xxxl) {
+      padding: 11rem 0 0 0;
+    }
+  }
+
+  &.-topS {
+    padding: 1.5rem 0 3rem;
+    @include mq(sm) {
+      padding: 1.75rem 0 3.25rem 0;
+    }
+    @include mq(md) {
+      padding: 2rem 0 3.75rem 0;
+    }
+    @include mq(lg) {
+      padding: 2rem 0 4rem 0;
+    }
+    @include mq(xxl) {
+      padding: 3rem 0 5rem 0;
+    }
+    @include mq(xxxl) {
+      padding: 4.5rem 0 6.5rem 0;
+    }
+  }
+
+  &.-bottom {
+    padding: 0 0 3rem 0;
+    @include mq(sm) {
+      padding: 0 0 3.25rem 0;
+    }
+    @include mq(md) {
+      padding: 0 0 3.5rem 0;
+    }
+    @include mq(lg) {
+      padding: 0 0 4rem 0;
+    }
+    @include mq(xxl) {
+      padding: 0 0 6rem 0;
+    }
+
+    @include mq(xxxl) {
+      padding: 0 0 8rem 0;
+    }
+  }
+
+  &.-bottomS {
+    padding: 3rem 0 1.75rem;
+    @include mq(sm) {
+      padding: 3.25rem 0 2rem 0;
+    }
+    @include mq(md) {
+      padding: 3.5rem 0 2.25rem 0;
+    }
+    @include mq(lg) {
+      padding: 4rem 0 2.5rem 0;
+    }
+    @include mq(xxl) {
+      padding: 5rem 0 3.25rem 0;
+    }
+
+    @include mq(xxxl) {
+      padding: 5.5rem 0 3.75rem 0;
+    }
+  }
+
+  &.-topL {
+    padding: 4.5rem 0 0 0;
+    @include mq(sm) {
+      padding: 4.75rem 0 0 0;
+    }
+    @include mq(md) {
+      padding: 5rem 0 0 0;
+    }
+    @include mq(lg) {
+      padding: 7.5rem 0 0 0;
+    }
+    @include mq(xxl) {
+      padding: 9rem 0 0 0;
+    }
+    @include mq(xxxl) {
+      padding: 11rem 0 0 0;
+    }
+  }
+
+  &.-bottomL {
+    padding: 2rem 0 4.5rem;
+    @include mq(sm) {
+      padding: 2.25rem 0 4.75rem 0;
+    }
+    @include mq(md) {
+      padding: 2.5rem 0 5.5rem 0;
+    }
+    @include mq(lg) {
+      padding: 2.75rem 0 6rem 0;
+    }
+    @include mq(xxl) {
+      padding: 3.25rem 0 7.5rem 0;
+    }
+    @include mq(xxxl) {
+      padding: 4rem 0 9rem 0;
+    }
+  }
+
+  &.-gray {
+    background-color: $colorLightGray;
+  }
+
+  &.-lightBeige {
+    background-color: $colorLightBeige;
+  }
+
+  &.-under {
+    padding: 6rem 0 7.5rem;
+    @include mq(lg) {
+      padding: 4rem 0 9rem;
+    }
+  }
+}
