@@ -1,0 +1,17 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import styles from './styles.module.scss';
+---
+
+<Layout title="Welcome to Astro." />
+<div class={styles.wrap}>
+  <div class={styles.box}>
+    <figure class={styles.image}>
+      <img src="/src/assets/images/openAnim/72.jpg" alt="" />
+    </figure>
+
+    <div class={styles.scrollbar} data-scrollbar>
+      <span class={styles.inner}></span>
+    </div>
+  </div>
+</div>

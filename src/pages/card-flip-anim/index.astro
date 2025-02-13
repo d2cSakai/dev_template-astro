@@ -1,0 +1,88 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import styles from './styles.module.scss';
+---
+
+<Layout title="Welcome to Astro." />
+
+<div class={styles.container}>
+  <article class={styles.card}>
+    <div class={styles.inner} data-card-front="true">
+      <div class:list={[styles.face, styles.faceFront]}>
+        <h2 class={styles.frontTitle}>Flower Card</h2>
+      </div>
+
+      <div class:list={[styles.face, styles.faceBack]}>
+        <div class={styles.content}>
+          <figure class={styles.headImage}>
+            <img class={styles.image} src="/src/assets/images/card-flip-anim/flower01.jpg" alt="" />
+          </figure>
+
+          <div class={styles.body}>
+            <h3>What are these flowers?</h3>
+            <p class={styles.description}>
+              This is where the flowers are explained.This is where the flowers are explained. This is where the flowers
+              are explained. This is where the flowers are explained. This is where the flowers are explained. This is
+              where the flowers are explained. This is where the flowers are explained. This is where the flowers are
+              explained. This is where the flowers are explained.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class={styles.card}>
+    <div class={styles.inner} data-card-front="true">
+      <div class:list={[styles.face, styles.faceFront]}>
+        <h2 class={styles.frontTitle}>Flower Card</h2>
+      </div>
+
+      <div class:list={[styles.face, styles.faceBack]}>
+        <div class={styles.content}>
+          <figure class={styles.headImage}>
+            <img class={styles.image} src="/src/assets/images/card-flip-anim/flower02.jpg" alt="" />
+          </figure>
+
+          <div class={styles.body}>
+            <h3>What are these flowers?</h3>
+            <p class={styles.description}>
+              This is where the flowers are explained.This is where the flowers are explained. This is where the
+              flowersare explained. This is where the flowers are explained. This is where the flowers are explained.
+              This is where the flowers are explained. This is where the flowers are explained. This is where the
+              flowers are explained. This is where the flowers are explained.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class={styles.card}>
+    <div class={styles.inner} data-card-front="true">
+      <div class:list={[styles.face, styles.faceFront]}>
+        <h2 class={styles.frontTitle}>Flower Card</h2>
+      </div>
+
+      <div class:list={[styles.face, styles.faceBack]}>
+        <div class={styles.content}>
+          <figure class={styles.headImage}>
+            <img class={styles.image} src="/src/assets/images/card-flip-anim/flower03.jpg" alt="" />
+          </figure>
+
+          <div class={styles.body}>
+            <h3>What are these flowers?</h3>
+            <p class={styles.description}>
+              This is where the flowers are explained.This is where the flowers are explained. This is where the flowers
+              are explained. This is where the flowers are explained. This is where the flowers are explained. This is
+              where the flowers are explained. This is where the flowers are explained. This is where the flowers are
+              explained. This is where the flowers are explained.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+</div>
+
+<!-- /.container -->

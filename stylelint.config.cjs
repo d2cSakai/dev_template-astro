@@ -1,6 +1,10 @@
 module.exports = {
   syntax: 'scss',
-  extends: ['stylelint-config-standard-scss', 'stylelint-config-recess-order'],
+  extends: ['stylelint-config-recess-order'],
+  rules: {
+    'property-no-vendor-prefix': true,
+    'value-no-vendor-prefix': true,
+  },
   overrides: [
     {
       files: ['*.astro', '**/*.astro'],

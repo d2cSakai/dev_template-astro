@@ -1,0 +1,50 @@
+[data-load-content] {
+  background-color: #222;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100vh;
+
+  opacity: 0;
+  visibility: hidden;
+
+  &[data-load-content='isShow'] {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &[data-load-content='isHidden'] {
+    opacity: 0;
+    visibility: hidden;
+
+    transition: ease-out;
+    transition-property: opacity, visibility;
+    transition-delay: 0.5s;
+    transition-duration: 0.4s;
+  }
+}
+
+.heading {
+  color: #fdfdfd;
+  font-size: 4rem;
+  font-family: 'Hiragino Mincho ProN W3', 'ヒラギノ明朝 ProN W3', 'Hiragino Mincho ProN', 'HG明朝E', 'MSP明朝', 'MS明朝',
+    serif;
+  display: inline-block;
+  position: relative;
+  z-index: 100;
+
+  span {
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition-property: opacity;
+    transition-duration: 0.4s;
+  }
+}
+
+[data-text-js],
+[data-text-gb] {
+  opacity: 0;
+}

@@ -1,0 +1,17 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import styles from './styles.module.scss';
+
+import '@assets/scss/common.scss';
+---
+
+<Layout title="Welcome to Astro." />
+<div class={styles.container}>
+  <div class={styles.loadContent} data-load-content>
+    <h1 class={styles.heading}>
+      <span class={styles.js} data-text-js>JavaScript</span>
+      <span class={styles.gb} data-text-gb>Good&nbsp;bye...</span>
+    </h1>
+  </div>
+</div>
+<!-- /.container -->

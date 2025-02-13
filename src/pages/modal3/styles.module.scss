@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --modal-bg-color: rgba(0, 0, 0, 0.5);
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  place-content: center;
+}
+
+// =================================================
+// components modal
+// =================================================
+
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
+.modal {
+  position: relative;
+  z-index: 1000;
+
+  &-content {
+    position: fixed;
+    width: calc(100vw - 3.2rem);
+    max-width: 32rem;
+    margin: auto;
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    transition-duration: 0.3s;
+    transition-property: opacity, transform;
+    inset: 0;
+
+    // 背景色の設定
+    &::backdrop {
+      background-color: rgba(255, 255, 255, 0.9);
+      transition-duration: 0.3s;
+      transition-property: opacity;
+    }
+
+    &--video {
+      padding-top: 3.5rem;
+    }
+  }
+
+  &-content-inner {
+    position: relative;
+  }
+
+  &-close-button {
+    position: absolute;
+    top: 1.8rem;
+    right: 1.8rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    &::before,
+    &::after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 0.2rem;
+      background-color: var(--color-black);
+      content: '';
+    }
+
+    &::before {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-blue);
+    }
+
+    &--video {
+      top: -3.5rem;
+      right: 0;
+    }
+  }
+}
+
+// ========================
+// JS処理
+[data-modal-content='close'] {
+  opacity: 0;
+
+  &::backdrop {
+    opacity: 0;
+  }
+}
+
+[data-modal-open] {
+  &:focus-visible {
+    border: 2px solid blue;
+  }
+}
