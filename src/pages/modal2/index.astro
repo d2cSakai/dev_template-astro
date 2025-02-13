@@ -1,0 +1,38 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import styles from './styles.module.scss';
+---
+
+<Layout title="Welcome to Astro." />
+
+<div class="wrapper">
+  <div class={styles.container}>
+    <div class={styles.modal} data-modal data-content>
+      <button type="button" data-modal-open>オープン01</button>
+      <div class={styles.content}>
+        <button type="button" class={styles.closeButton} data-modal-close>クローズ</button>
+        <div class={styles.inner}>
+          <p data-modal-text>
+            ここはモーダルのテキストや内容が入ります。<br />ここはモーダルのテキストや内容が入ります。<br
+            />ここはモーダルのテキストや内容が入ります。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class={styles.modal} data-modal="anim" data-content>
+      <button type="button" data-modal-open>オープン02</button>
+      <div class={styles.content}>
+        <button type="button" class={styles.closeButton} data-modal-close>クローズ</button>
+        <div class={styles.inner}>
+          <p data-modal-text>
+            ここはモーダルのテキストや内容が入ります。<br />ここはモーダルのテキストや内容が入ります。<br
+            />ここはモーダルのテキストや内容が入ります。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.container -->
+</div>
+<!-- /.wrapper -->

@@ -1,0 +1,51 @@
+button {
+  display: inline-block;
+  padding: 0;
+  // border: none;
+  outline: none;
+}
+
+[data-open-button] {
+  &:focus-visible {
+    border: 2px solid blue;
+  }
+}
+
+[data-close-button] {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+html:has(dialog[open]) {
+  overflow: hidden;
+}
+
+.content {
+  background-color: #fff;
+  border: 0;
+  inset: 0;
+  margin: auto;
+  max-width: 556px;
+  padding: 0;
+  padding-top: 20px;
+  position: fixed;
+  transition-duration: 0.3s;
+  transition-property: opacity, transform;
+  width: calc(100vw - 32px);
+
+  // 背景色の設定
+  &::backdrop {
+    background-color: rgba(0, 0, 0, 0.3);
+    transition-duration: 0.3s;
+    transition-property: opacity;
+  }
+}
+
+[data-modal-content='close'] {
+  opacity: 0;
+
+  &::backdrop {
+    opacity: 0;
+  }
+}

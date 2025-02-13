@@ -1,5 +1,5 @@
+import { Loading } from '@/assets/scripts/modules/common/loading';
 import { Common } from '@assets/scripts/modules/common';
-
 class App {
   constructor() {
     this.onContentLoaded = this.onContentLoaded.bind(this);
@@ -20,6 +20,7 @@ class App {
     window.removeEventListener('DOMContentLoaded', this.onContentLoaded);
     console.log('onContentLoaded');
     // new Footer();
+    new Loading({});
   }
 
   // load

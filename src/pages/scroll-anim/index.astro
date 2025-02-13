@@ -1,0 +1,36 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import styles from './styles.module.scss';
+---
+
+<Layout title="Welcome to Astro." />
+
+<div class={styles.container}>
+  <div class="wrapper">
+    <p data-scroll>フェードイン</p>
+    <p data-scroll>フェードイン</p>
+    <p data-scroll>フェードイン</p>
+    <p data-scroll>フェードイン</p>
+    <p data-scroll>フェードイン</p>
+  </div>
+  <!-- /.wrapper -->
+</div>
+
+<style lang="scss">
+  .wrapper {
+    display: grid;
+    gap: 120px 0;
+  }
+
+  [data-scroll] {
+    transform: translateY(30px);
+    opacity: 0;
+    transition-timing-function: ease-out;
+    transition-duration: 0.4s;
+    transition-property: opacity, transform;
+    &[data-scroll='fade-in'] {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+</style>

@@ -1,0 +1,32 @@
+.box {
+  width: 300px;
+  overflow-x: scroll;
+}
+
+.image {
+  display: block;
+  width: 600px;
+
+  img {
+    width: 100%;
+  }
+}
+
+.scrollbar {
+  margin-top: 50px;
+  width: 300px;
+  position: fixed;
+  background: #939393;
+  height: 2px;
+}
+
+.inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  display: inline-block;
+  background: #bcdd82;
+  height: 2px;
+  width: 30px;
+}

@@ -1,0 +1,71 @@
+.container {
+  width: 100%;
+  height: 250vh;
+  display: grid;
+  place-content: center;
+}
+.wrapper {
+  display: grid;
+  gap: 120px 0;
+}
+
+.imageWrap {
+  display: flex;
+  gap: 0 24px;
+
+  figure {
+    &:nth-child(2) {
+      margin-top: 120px;
+    }
+
+    &:nth-child(3) {
+      margin-top: 240px;
+    }
+  }
+}
+
+figure {
+  width: 240px;
+  img {
+    aspect-ratio: 9 / 16;
+    object-fit: cover;
+  }
+}
+
+[data-scroll-anim-target] {
+  figure {
+    mask-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 45%,
+      rgba(0, 0, 0, 0) 55%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    mask-repeat: no-repeat;
+    mask-size: 250% 250%;
+  }
+}
+
+[data-scroll-anim-target='scroll-in'] {
+  figure {
+    animation: mask-animation-bottom-top 0.65s ease-out forwards;
+
+    &:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    &:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+  }
+}
+
+// Y軸方向のアニメーション0%から100%までで下から上に移動
+@keyframes mask-animation-bottom-top {
+  0% {
+    mask-position: 0 0;
+  }
+  100% {
+    mask-position: 0 100%;
+  }
+}

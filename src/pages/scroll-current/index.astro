@@ -1,0 +1,193 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import styles from './styles.module.scss';
+---
+
+<Layout title="Welcome to Astro." />
+
+<div class="container">
+  <div class="content-pc">
+    <div class="content-pc-side">
+      <div class="content-pc-block content-pc-block--left">
+        <div class="square"></div>
+      </div>
+      <!-- /.content-pc-left-inner -->
+    </div>
+    <!-- /.content-pc-left -->
+
+    <div class="content-pc-side">
+      <div class="content-pc-block content-pc-block--right">
+        <nav class="nav">
+          <ul class="nav-list" data-nav>
+            <li class="nav-item">
+              <a href="#section1" class="nav-link">リスト1</a>
+            </li>
+            <li class="nav-item">
+              <a href="#section2" class="nav-link">リスト2</a>
+            </li>
+            <li class="nav-item">
+              <a href="#section3" class="nav-link">リスト3</a>
+            </li>
+            <li class="nav-item">
+              <a href="#section4" class="nav-link">リスト4</a>
+            </li>
+            <li class="nav-item">
+              <a href="#section5" class="nav-link">リスト5</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <!-- /.content-pc-right-inner -->
+    </div>
+    <!-- /.content-pc-right -->
+  </div>
+  <!-- /.content-pc -->
+
+  <div class="container-main">
+    <div class="wrap">
+      <section id="section1" data-section>
+        <h2>セクション1</h2>
+        <p>
+          セクションの内容セクションの内容セクションの内容セクションの内容セクションの内容セクションの内容セクションの内容
+          セクションの内容 セクションの内容 セクションの内容 セクションの内容 セクションの内容 セクションの内容
+          セクションの内容セクションの内容セクションの内容セクションの内容セクションの内容セクションの内容セクションの内容
+          セクションの内容 セクションの内容 セクションの内容 セクションの内容 セクションの内容 セクションの内容
+        </p>
+      </section>
+      <section id="section2" data-section>
+        <h2>セクション2</h2>
+        <p>
+          セクションの内容セクションの内容セクションの内容セクションの内容セクションの内容セクションの内容セクションの内容
+          セクションの内容 セクションの内容 セクションの内容 セクションの内容 セクションの内容 セクションの内容
+          セクションの内容セクションの内容セクションの内容セクションの内容セクションの内容セクションの内容セクションの内容
+          セクションの内容 セクションの内容 セクションの内容 セクションの内容 セクションの内容 セクションの内容
+        </p>
+      </section>
+      <section id="section3" data-section>
+        <h2>セクション3</h2>
+        <p>
+          セクションの内容セクションの内容セクションの内容セクションの内容セクションの内容セクションの内容セクションの内容
+          セクションの内容 セクションの内容 セクションの内容 セクションの内容 セクションの内容 セクションの内容
+          セクションの内容セクションの内容セクションの内容セクションの内容セクションの内容セクションの内容セクションの内容
+          セクションの内容 セクションの内容 セクションの内容 セクションの内容 セクションの内容 セクションの内容
+        </p>
+      </section>
+      <section id="section4" data-section>
+        <h2>セクション4</h2>
+        <p>
+          セクションの内容セクションの内容セクションの内容セクションの内容セクションの内容セクションの内容セクションの内容
+          セクションの内容 セクションの内容 セクションの内容 セクションの内容 セクションの内容 セクションの内容
+          セクションの内容セクションの内容セクションの内容セクションの内容セクションの内容セクションの内容セクションの内容
+          セクションの内容 セクションの内容 セクションの内容 セクションの内容 セクションの内容 セクションの内容
+        </p>
+      </section>
+      <section id="section5" data-section>
+        <h2>セクション5</h2>
+        <p>
+          セクションの内容セクションの内容セクションの内容セクションの内容セクションの内容セクションの内容セクションの内容
+          セクションの内容 セクションの内容 セクションの内容 セクションの内容 セクションの内容 セクションの内容
+          セクションの内容セクションの内容セクションの内容セクションの内容セクションの内容セクションの内容セクションの内容
+          セクションの内容 セクションの内容 セクションの内容 セクションの内容 セクションの内容 セクションの内容
+        </p>
+      </section>
+    </div>
+  </div>
+  <!-- /.container-main -->
+</div>
+<!-- /.container -->
+
+<style lang="scss">
+  :root {
+    --main-content-width: 400px;
+  }
+  .square {
+    width: 100%;
+    height: 100px;
+    background-color: #333;
+  }
+
+  .container-main {
+    max-width: var(--main-content-width);
+    margin: 0 auto;
+  }
+
+  .content-pc {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    width: 100%;
+    height: 100vh;
+
+    &-side {
+      width: calc((100% - var(--main-content-width)) / 2);
+    }
+
+    &-block {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+
+      &--left {
+        right: calc(50% + (var(--main-content-width) / 2) + 50px);
+        width: 305px;
+      }
+
+      &--right {
+        left: calc(50% + (var(--main-content-width) / 2) + 50px);
+      }
+    }
+  }
+
+  .wrap {
+    display: grid;
+    gap: 120px 0;
+  }
+  .nav {
+    width: 300px;
+    position: absolute;
+    top: 0;
+    height: 100vh;
+
+    &-list {
+      display: grid;
+      gap: 20px 0;
+    }
+
+    &-link {
+      position: relative;
+      display: block;
+      color: #333;
+      font-weight: 700;
+      font-size: 0.8rem;
+      line-height: 1.5;
+      letter-spacing: 1px;
+      text-decoration: none;
+
+      &:focus-visible {
+        outline: 2px solid blue;
+      }
+
+      &::before {
+        opacity: 0;
+        transition: 0.3s ease-out;
+        transition-property: opacity;
+      }
+
+      &[data-nav-link='active'] {
+        &::before {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          left: -20px;
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background-color: #333;
+          opacity: 1;
+          content: '';
+        }
+      }
+    }
+  }
+</style>

@@ -1,0 +1,14 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import styles from './styles.module.scss';
+---
+
+<Layout title="Welcome to Astro." />
+
+<div class={styles.text} data-text></div>
+
+<div class={styles.visual} data-visual>
+  <img class={styles.image} src="/src/assets/images/openAnim/72.jpg" alt="" />
+</div>
+
+<div id="loader" data-loader></div>

@@ -1,0 +1,18 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import styles from './styles.module.scss';
+---
+
+<Layout title="Welcome to Astro." />
+
+<div class={styles.container} data-video-container>
+  <div class={styles.inner} data-video-state-trigger>
+    <button class={styles.playButton} type="button" data-play-button>停止</button>
+    <div class={styles.video}>
+      <video class={styles.video} loop muted data-video data-video-id="video1">
+        <source src="/src/assets/video/sakura_movie.mp4" type="video/mp4" />
+      </video>
+    </div>
+  </div>
+</div>
+<!-- container -->

@@ -1,0 +1,37 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import styles from './styles.module.scss';
+
+import '@assets/scss/common.scss';
+---
+
+<Layout title="Welcome to Astro." />
+
+<div class={styles.container}>
+  <nav class={styles.menu} class="menu" data-menu>
+    <div class={styles.menu__item} class="menu__item" data-menu-item>
+      <a class={styles.menu__itemLink} class="menu__item-link" data-menu-item-link>Guayaquil</a>
+      <!-- 実際のテキストの下にabsoluteで配置して、overflowで隠す -->
+      <div class={styles.marquee} class="marquee" data-marquee>
+        <div class={styles.marquee__innerWrap} data-marquee-inner-wrap>
+          <div class={styles.marquee__inner} aria-hidden="true">
+            <span>Frank Tower</span>
+            <div class={styles.marquee__img}></div>
+            <span>Dom Dom</span>
+            <div class={styles.marquee__img}></div>
+            <span>Santa Maria</span>
+            <div class={styles.marquee__img}></div>
+            <span>Big Molly</span>
+            <div class={styles.marquee__img}></div>
+            <span>Frank Tower</span>
+            <div class={styles.marquee__img}></div>
+            <span>Dom Dom</span>
+            <div class={styles.marquee__img}></div>
+          </div><!--/marquee__inner-->
+        </div><!--/marquee__inner-wrap-->
+      </div><!--/marquee-->
+    </div><!--/menu__item-->
+    <!-- ... -->
+  </nav><!--/menu-->
+</div>
+<!-- /.container -->

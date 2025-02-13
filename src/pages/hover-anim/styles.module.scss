@@ -1,0 +1,219 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 18px;
+}
+
+body {
+  margin: 0;
+  --color-text: #111;
+  --color-bg: #f8c792;
+  --color-link: #000;
+  --color-link-hover: #000;
+  --color-border: #a7927b;
+  --marquee-bg: #000;
+  --marquee-text: #fff;
+  --menu-focus: #775e41;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  font-family:
+    reason-new,
+    -apple-system,
+    BlinkMacSystemFont,
+    Segoe UI,
+    Helvetica,
+    Arial,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Better focus styles from https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible */
+a:focus {
+  /* Provide a fallback style for browsers
+	 that don't support :focus-visible */
+  outline: none;
+  background: lightgrey;
+}
+
+a:focus:not(:focus-visible) {
+  /* Remove the focus indicator on mouse-focus for browsers
+	 that do support :focus-visible */
+  background: transparent;
+}
+
+a:focus-visible {
+  /* Draw a very noticeable focus style for
+	 keyboard-focus on browsers that do support
+	 :focus-visible */
+  outline: 2px solid red;
+  background: transparent;
+}
+
+.unbutton {
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+}
+
+.unbutton:focus {
+  outline: none;
+}
+
+.frame {
+  padding: 3rem 5vw;
+  text-align: center;
+  position: relative;
+  z-index: 1000;
+}
+
+.frame__logo {
+  font-size: 1rem;
+  margin: 0 0 1rem;
+  font-weight: 700;
+}
+
+.frame__links {
+  display: inline;
+}
+
+.frame__links a:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.frame__demos {
+  margin: 1rem 0;
+}
+
+.frame__demo--current,
+.frame__demo--current:hover {
+  color: var(--color-text);
+}
+
+a {
+  text-decoration: underline;
+  color: var(--color-link);
+  outline: none;
+}
+
+a:hover {
+  color: var(--color-link-hover);
+  outline: none;
+  text-decoration: none;
+}
+
+.menu-wrap {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: calc(100vh - 13rem);
+  position: relative;
+  justify-content: center;
+}
+
+.menu__item {
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 -1px var(--color-border);
+}
+
+.menu__item:last-child {
+  box-shadow:
+    0 1px var(--color-border),
+    0 -1px var(--color-border);
+}
+
+.menu__itemLink {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.menu__itemLink:focus,
+.menu__itemLink:focus-visible {
+  color: var(--menu-focus);
+}
+
+.menu__itemLink:focus:not(:focus-visible) {
+  color: var(--color-link);
+}
+
+.marquee {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: var(--marquee-bg);
+  transform: translate3d(0, 101%, 0);
+}
+
+// テキストと画像を流すためのdiv
+.marquee__innerWrap {
+  height: 100%;
+  width: 100%;
+  // ここは0でも多分良い
+  transform: translate3d(0, -101%, 0);
+}
+
+// テキストと画像を横向きに並べるdiv
+.marquee__inner {
+  height: 100%;
+  width: fit-content;
+  align-items: center;
+  display: flex;
+  position: relative;
+  animation: marquee 15s linear infinite;
+  will-change: transform;
+}
+
+@keyframes marquee {
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.menu__itemLink,
+.marquee span {
+  white-space: nowrap;
+  font-size: 6vw;
+  line-height: 1.2;
+  font-weight: 600;
+  padding: 1vh 1vw 0;
+  text-transform: uppercase;
+}
+
+.marquee span {
+  text-align: center;
+  color: var(--marquee-text);
+  font-weight: 400;
+}
+
+.marquee__img {
+  width: 15vw;
+  height: 70%;
+  margin: 0 2vw;
+  border-radius: 5vw;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.marquee__img {
+  background:
+    url(../../assets/images/card-flip-anim/flower01.jpg) no-repeat,
+    center;
+  background-size: contain;
+  width: 100px;
+  height: 100px;
+}

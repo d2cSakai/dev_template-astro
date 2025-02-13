@@ -1,91 +1,108 @@
+interface AnimOptions {
+  duration: number;
+  easing: string;
+}
+
 export class Accordion {
-  // まず型定義する。
-  private accordions: NodeListOf<HTMLDetailsElement>;
-  private ANIMATION_TIME: number;
-  private OFFSET_TIME: number;
+  // セレクター
+  private selectors = {
+    accordion: 'data-accordion',
+  };
 
-  private titleHeight: number;
-  private contentHeight: number;
+  // 使用要素
+  private elements: {
+    accordions: NodeListOf<HTMLDetailsElement> | [];
+    isAnimating: boolean; //連打防止フラグ
+    animOptions: AnimOptions;
+  };
 
-  constructor(titleHeight: number, contentHeight: number) {
-    this.ANIMATION_TIME = 250;
-    this.OFFSET_TIME = 5;
-    this.accordions = document.querySelectorAll('[data-accordion-open]');
-
-    this.titleHeight = titleHeight;
-    this.contentHeight = contentHeight;
+  constructor() {
+    this.elements = {
+      accordions: document.querySelectorAll(`[${this.selectors.accordion}]`),
+      isAnimating: false, //連打防止フラグ
+      animOptions: {
+        duration: 300,
+        easing: 'ease-in-out',
+      },
+    };
 
     this.init();
   }
 
-  init() {
-    this.accordions.forEach((accordion: HTMLDetailsElement): void => {
-      const title: HTMLElement | null = accordion.querySelector('summary');
+  private init(): void {
+    this.elements.accordions.forEach((accordion: HTMLDetailsElement): void => {
+      const title: HTMLElement | null = accordion.querySelector('[data-accordion-title]');
+      const content: HTMLDivElement | null = accordion.querySelector('[data-accordion-content]');
 
-      // 要素の存在チェック
-      if (!title) return;
-      title.addEventListener('click', (e: Event) => {
-        // すぐにopen属性が切り替わらないようにする。
-        e.preventDefault();
-        const content: HTMLElement | null = accordion.querySelector('[data-accordion-content]');
-        if (!(title && content)) return;
-        // タイトルと中身の高さを取得 (必ずクリック後)
-        this.titleHeight = title.offsetHeight;
-        this.contentHeight = content.offsetHeight;
+      if (!(title && content)) return; // 要素の存在チェック
 
-        // 閉じる時の高さ 初期値height :autoをsetPropertyでCSSを直接書き換え
-        // クリックしたらまず、アコーディオンの高さをタイトルの高さにする。
-        accordion.style.setProperty('--acc-height--closed', `${this.titleHeight}px`);
+      title.addEventListener('click', async (event) => {
+        event.preventDefault(); // アニメーション付与のため、デフォルトの挙動を無効化
 
-        this.toggle(accordion);
+        if (this.elements.isAnimating) return; // trueだったら以降アニメーションしない。
+        this.elements.isAnimating = true; // trueにする
+
+        if (accordion.getAttribute('open') === null) {
+          await this.openFunc(accordion, content); // awaitを使用して、非同期処理の完了を待つ。
+        } else {
+          await this.closeFunc(accordion, content);
+        }
+
+        this.elements.isAnimating = false;
       });
     });
   }
 
-  private toggle(accordion: HTMLDetailsElement) {
-    const hasOpenAttribute: boolean = !accordion.getAttribute('data-accordion-open');
-    if (!accordion.open && !hasOpenAttribute) {
-      this.accordionOpen(accordion);
-    } else if (accordion.open) {
-      this.accordionClose(accordion);
-    }
+  private async openFunc(detail: HTMLDetailsElement, content: HTMLDivElement) {
+    return new Promise((resolve): void => {
+      detail.setAttribute('open', 'true'); // open属性を付与
+      const openingAnim = this.openingAnimation(content); // アコーディオンを開くアニメーション
 
-    // details 'toggle' イベント
-    accordion.addEventListener('toggle', () => {
-      if (!accordion.open && !hasOpenAttribute) {
-        accordion.setAttribute('data-accordion-open', 'false');
-      } else if (accordion.open && hasOpenAttribute) {
-        accordion.setAttribute('data-accordion-open', 'true');
-      }
+      // openingAnimが完了したらresolve(解決)する onfinishはアニメーション終了時に実行されるイベントハンドラ
+      openingAnim.onfinish = (): void => {
+        resolve(true);
+      };
     });
   }
 
-  private setHeightAccordion(accordion: HTMLDetailsElement): void {
-    accordion.style.setProperty('--acc-height--opened', `${this.titleHeight + this.contentHeight}px`);
+  private async closeFunc(detail: HTMLDetailsElement, content: HTMLDivElement) {
+    return new Promise((resolve): void => {
+      const closingAnim = this.closingAnimation(content); // アコーディオンを閉じるときの処理
+
+      closingAnim.onfinish = (): void => {
+        resolve(true);
+        detail.removeAttribute('open');
+      };
+    });
   }
 
-  private accordionClose(accordion: HTMLDetailsElement): void {
-    this.setHeightAccordion(accordion);
-
-    setTimeout((): void => {
-      accordion.setAttribute('data-accordion-open', 'false');
-    }, this.OFFSET_TIME);
-
-    setTimeout((): void => {
-      accordion.open = false;
-    }, this.ANIMATION_TIME + this.OFFSET_TIME);
+  // アコーディオンを閉じるときのキーフレーム
+  private closingAnimation(content: HTMLDivElement) {
+    return content.animate(
+      [
+        {
+          height: content.scrollHeight + 'px',
+        },
+        {
+          height: 0,
+        },
+      ],
+      this.elements.animOptions,
+    );
   }
 
-  private accordionOpen(accordion: HTMLDetailsElement): void {
-    // open属性を最初にセット
-    accordion.open = true;
-
-    // コンテンツの高さはopenをつけた後で取得しないと iOSで0になる。
-    this.setHeightAccordion(accordion);
-
-    //open付与から少し遅らせることで動作が安定する
-    setTimeout((): void => {
-      accordion.setAttribute('data-accordion-open', 'true');
-    }, this.OFFSET_TIME);
+  // アコーディオンを開くときのキーフレーム
+  private openingAnimation(content: HTMLDivElement) {
+    return content.animate(
+      [
+        {
+          height: 0,
+        },
+        {
+          height: content.scrollHeight + 'px',
+        },
+      ],
+      this.elements.animOptions,
+    );
   }
 }

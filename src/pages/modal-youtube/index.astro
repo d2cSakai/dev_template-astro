@@ -1,0 +1,37 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import styles from './styles.module.scss';
+---
+
+<Layout title="Welcome to Astro." />
+
+<div class="wrapper">
+  <div class={styles.modal} data-modal>
+    <button type="button" data-modal-open-button> オープン1</button>
+
+    <dialog class={styles.content} data-modal-content="close">
+      <div class={styles.dialogInner} data-modal-inner>
+        <button type="button" data-modal-close-button>×</button>
+        <p>ここはテキストが入ります。</p>
+
+        <!-- data-modal-videoとidを一致させる -->
+        <div data-modal-video="product_highlights_youtubeId01" data-youtube-section="highlights">
+          <div id="product_highlights_youtubeId01"></div>
+        </div>
+      </div>
+    </dialog>
+  </div>
+
+  <!-- <div class={styles.modal} data-try-item>
+    <button data-open-button type="button"> オープン2</button>
+
+    <dialog class={styles.content} data-modal="close">
+      <div class={styles.dialogInner} data-modal-inner>
+        <button data-close-button type="button">×</button>
+        <p>ここはテキストが入ります。</p>
+      </div>
+    </dialog>
+  </div> -->
+</div>
+<!-- /.wrapper -->
+<script src="https://www.youtube.com/iframe_api"></script>
